@@ -1,0 +1,28 @@
+REFMATCH - QUICK START
+======================
+
+RefMatch is installed. In FL Studio:
+
+1. Options > Manage plugins > "Find installed plugins" (or "Start scan").
+2. Open the Mixer, select the MASTER track and add RefMatch in the LAST
+   effect slot (below your limiter, if you use one). Pick the VST3 version.
+3. Keep FL's Master fader at 0 dB - RefMatch listens before that fader.
+
+COMPARE WITH A REFERENCE
+- Drag a released song you love (same genre) onto the strip at the top of
+  RefMatch, or click "Load". WAV, MP3, FLAC, AIFF or OGG.
+- Drag across the waveform to loop the best part (e.g. the drop), then play
+  the same part of your own song and click the round "reset" arrow.
+- Click MIX / REFERENCE while FL plays. "Level match" plays the reference at
+  your mix's loudness, so you judge the sound - not which one is louder.
+
+READ THE RESULTS
+- Tonal balance: mint line = your mix, purple area = the reference. The bars
+  show which ranges you have more (up) or less (down) of.
+- Loudness & dynamics: how loud, how peaky and how dynamic your mix is.
+- Stereo image: how wide each range is. Bass should stay in the middle.
+- What to try: the biggest differences first, each with a concrete fix.
+  Make small moves, listen again, press reset after changing your mix.
+
+When you export, RefMatch always passes your song through untouched.
+The "?" button in the top-right corner of the plugin explains everything.
