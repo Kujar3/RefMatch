@@ -10,3 +10,4 @@ build_log.txt
 dist/
 Example_Songs/
 Example_Tracks/
+installer/payload/

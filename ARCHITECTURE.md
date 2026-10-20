@@ -22,6 +22,9 @@ scripts/fetch_clap.bat      clap-juce-extensions checkout at a pinned commit (+ 
 scripts/install-plugin.ps1  copies the built VST3 / CLAP to C:\Program Files\Common Files\{VST3,CLAP} (one UAC
                             prompt); -CurrentUser: %LOCALAPPDATA%\Programs\Common\{VST3,CLAP}; -BuildDir, -DestRoot.
                             Staged replace (.new / .old): a copy FL has loaded is left intact
+scripts/build-installer.bat static-MSVC-runtime Release build in build-release -> installer\payload (gitignored) ->
+                            Inno Setup 6 (installer\RefMatch.iss, QuickStart.txt, refmatch.ico) ->
+                            dist\RefMatch-Setup-<version>.exe; /DTestRoot=<dir> builds a no-admin test variant
 src/core/                   pure C++17 analysis, no JUCE, unit-tested by CoreTests
   Common.h                  kNoValue sentinel, dB helpers, the 6 bands, spectrum curve grid, kLowEndMonoHz
   Loudness.h/.cpp           BS.1770-4 K-weighting, LoudnessMeter (M / S / I / LRA)

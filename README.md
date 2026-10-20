@@ -13,6 +13,13 @@ VST3 + CLAP + Standalone, Windows, built with JUCE 8.
 
 ## Install
 
+**Got `RefMatch-Setup-1.0.0.exe`?** Close FL Studio, double-click it and click through (it asks for admin rights once).
+It installs the VST3 (and the CLAP) into the standard plugin folders, needs nothing else on the PC, and adds an
+uninstaller to *Settings > Apps*. Then continue with step 3 below. Making that installer yourself: see
+*Share it with a friend* further down.
+
+From the source code:
+
 1. Build it (see *For developers* below). The plugin ends up in `build\RefMatch_artefacts\Release\`.
 2. Copy it into the system plugin folders. Close FL Studio first (Windows can't replace a plugin that is loaded), then
    run this from the `RefMatch` folder in PowerShell. It asks for admin once:
@@ -232,6 +239,21 @@ The plugin lands in `build\RefMatch_artefacts\Release\` (`VST3\RefMatch.vst3`, `
 
 `docs\screenshot.png` is `07_loop_1100x690.png` from the snapshot run (synthetic data). See `ARCHITECTURE.md` for how
 the code is organised.
+
+### Share it with a friend (installer)
+
+```
+scripts\build-installer.bat
+```
+
+builds `dist\RefMatch-Setup-1.0.0.exe`: one file to send. It needs Inno Setup 6 (https://jrsoftware.org/isdl.php) on
+your PC, not on theirs. The script compiles a separate Release build in `build-release` with the static MSVC runtime
+(so the other PC needs no Visual C++ redistributable), copies it to `installer\payload` and compiles
+`installer\RefMatch.iss`. The installer puts `RefMatch.vst3` in `C:\Program Files\Common Files\VST3`, `RefMatch.clap` in
+`...\Common Files\CLAP` (optional) and, if ticked, the standalone app in `C:\Program Files\RefMatch`, shows
+`installer\QuickStart.txt` at the end, and registers an uninstaller. Bump `AppVersion` in `RefMatch.iss` (and `VERSION`
+in `CMakeLists.txt`) for a new release. `scripts\build-installer.bat /DTestRoot=C:\Temp\rm-test` builds a test variant
+(`...-TEST.exe`) that installs below that folder without admin rights, for trying the installer safely.
 
 ## Licences
 
