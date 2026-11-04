@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(RefMatch VERSION 1.0.0 LANGUAGES C CXX)
+project(RefMatch VERSION 1.0.1 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -65,6 +65,8 @@ juce_add_plugin(RefMatch
     IS_MIDI_EFFECT FALSE
     EDITOR_WANTS_KEYBOARD_FOCUS FALSE
     VST3_CATEGORIES Fx Analyzer
+    # No moduleinfo.json: FL Studio records no category for a bundle that has one, and leaves the plugin unsorted.
+    VST3_AUTO_MANIFEST FALSE
     ICON_BIG "${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/logo_512.png"
     COPY_PLUGIN_AFTER_BUILD FALSE)
 

@@ -8,7 +8,7 @@
 
 #define AppName "RefMatch"
 #ifndef AppVersion
-  #define AppVersion "1.0.0"
+  #define AppVersion "1.0.1"
 #endif
 #define AppPublisher "Kujar3"
 
@@ -74,6 +74,8 @@ Source: "payload\VST3\RefMatch.vst3\*"; DestDir: "{#PluginRoot}\VST3\RefMatch.vs
 Source: "payload\CLAP\RefMatch.clap"; DestDir: "{#PluginRoot}\CLAP"; Components: clap; Flags: ignoreversion
 Source: "payload\Standalone\RefMatch.exe"; DestDir: "{app}"; Components: standalone; Flags: ignoreversion
 Source: "QuickStart.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\LICENSE"; DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
+Source: "THIRD-PARTY-NOTICES.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "refmatch.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [InstallDelete]

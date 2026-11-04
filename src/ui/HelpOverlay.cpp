@@ -12,6 +12,10 @@ struct Step
 
 const juce::String kTitle ("Getting started with RefMatch");
 const juce::String kSubtitle ("Compare your mix with a song you love - fairly, at the same loudness - and see what to change.");
+
+// The notices the AGPL asks a user interface to show: the copyright, no warranty, and how to read the licence.
+const juce::String kLegalLine1 ("RefMatch - Copyright (C) 2026 Kujar3. Free software: you can share and change it under the GNU AGPL v3. It comes with no warranty.");
+const juce::String kLegalLine2 ("Licence: gnu.org/licenses/agpl-3.0.html  -  Source code: github.com/Kujar3/RefMatch  -  The installer adds LICENSE.txt and THIRD-PARTY-NOTICES.txt");
 } // namespace
 
 //==============================================================================
@@ -128,7 +132,7 @@ struct HelpOverlay::Impl
 
     static constexpr float kPad = 24.0f;
     static constexpr float kHeaderH = 74.0f;
-    static constexpr float kFooterH = 30.0f;
+    static constexpr float kFooterH = 66.0f;
 
     std::vector<Step> steps;
     juce::StringArray panels, glossary;
@@ -253,9 +257,14 @@ void HelpOverlay::paint (juce::Graphics& g)
         }
     }
 
-    g.setFont (font (11.0f));
+    g.setFont (font (10.5f));
     g.setColour (Colours::textSubtle);
-    g.drawText ("Click anywhere to close", juce::Rectangle<float> (0.0f, card.getHeight() - 26.0f, card.getWidth(), 16.0f),
+    const auto legal = juce::Rectangle<float> (kPad, card.getHeight() - 54.0f, card.getWidth() - 2.0f * kPad, 14.0f);
+    drawFittedLine (g, kLegalLine1, legal, juce::Justification::centred, 0.85f);
+    drawFittedLine (g, kLegalLine2, legal.translated (0.0f, 14.0f), juce::Justification::centred, 0.85f);
+
+    g.setFont (font (11.0f));
+    g.drawText ("Click anywhere to close",juce::Rectangle<float> (0.0f, card.getHeight() - 26.0f, card.getWidth(), 16.0f),
                 juce::Justification::centred, false);
 }
 

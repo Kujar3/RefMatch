@@ -13,7 +13,7 @@ VST3 + CLAP + Standalone, Windows, built with JUCE 8.
 
 ## Install
 
-**Got `RefMatch-Setup-1.0.0.exe`?** Close FL Studio, double-click it and click through (it asks for admin rights once).
+**Got `RefMatch-Setup-1.0.1.exe`?** Close FL Studio, double-click it and click through (it asks for admin rights once).
 It installs the VST3 (and the CLAP) into the standard plugin folders, needs nothing else on the PC, and adds an
 uninstaller to *Settings > Apps*. Then continue with step 3 below. Making that installer yourself: see
 *Share it with a friend* further down.
@@ -246,7 +246,7 @@ the code is organised.
 scripts\build-installer.bat
 ```
 
-builds `dist\RefMatch-Setup-1.0.0.exe`: one file to send. It needs Inno Setup 6 (https://jrsoftware.org/isdl.php) on
+builds `dist\RefMatch-Setup-1.0.1.exe`: one file to send. It needs Inno Setup 6 (https://jrsoftware.org/isdl.php) on
 your PC, not on theirs. The script compiles a separate Release build in `build-release` with the static MSVC runtime
 (so the other PC needs no Visual C++ redistributable), copies it to `installer\payload` and compiles
 `installer\RefMatch.iss`. The installer puts `RefMatch.vst3` in `C:\Program Files\Common Files\VST3`, `RefMatch.clap` in
@@ -255,8 +255,28 @@ your PC, not on theirs. The script compiles a separate Release build in `build-r
 in `CMakeLists.txt`) for a new release. `scripts\build-installer.bat /DTestRoot=C:\Temp\rm-test` builds a test variant
 (`...-TEST.exe`) that installs below that folder without admin rights, for trying the installer safely.
 
-## Licences
+## Licence
 
-- JUCE 8: AGPLv3 or the JUCE licence. Fine for personal use; check the JUCE terms before you distribute builds.
-- Inter font: SIL Open Font License 1.1.
-- clap-juce-extensions: MIT.
+RefMatch is Copyright (C) 2026 Kujar3. It is free software under the [GNU Affero General Public License v3](LICENSE), with
+no warranty.
+
+In plain words:
+
+- You can use it for anything, including commercial music, for free.
+- You can change it, share it and even sell it. Whoever shares or sells a build must also give the people who get it the
+  complete source code, including their changes, under this same licence. The same goes for a changed version that
+  people use over a network.
+- A closed-source product built on this code is not allowed under this licence. It would need separate permission from
+  the copyright holder for this code, and a [JUCE licence](https://juce.com/get-juce/) for JUCE.
+
+If this summary and the licence differ, the licence decides.
+
+Built with:
+
+- [JUCE 8](https://juce.com), used under the AGPLv3 (it is dual-licensed, with a commercial licence as the alternative).
+- From JUCE: the VST3 SDK (MIT), FLAC and Ogg Vorbis (BSD), jpeglib, libpng and zlib, HarfBuzz, SheenBidi (Apache 2.0).
+- [clap-juce-extensions](https://github.com/free-audio/clap-juce-extensions) and CLAP (MIT).
+- The [Inter](https://rsms.me/inter/) font (SIL Open Font License 1.1).
+
+Their notices are in [`installer/THIRD-PARTY-NOTICES.txt`](installer/THIRD-PARTY-NOTICES.txt), and the installer carries
+that file and the licence. VST is a registered trademark of Steinberg Media Technologies GmbH.
