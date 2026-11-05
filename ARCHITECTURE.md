@@ -4,8 +4,8 @@ RefMatch is a reference-track matcher (VST3 + Standalone + CLAP, JUCE 8, C++17) 
 on the master channel, plays a commercial reference track in place of the mix at the click of a button (loudness
 matched, so the comparison is fair) and explains, in plain language, how the mix differs from the reference: tonal
 balance per band, loudness, peaks and dynamics, stereo width and low-end mono compatibility.
-Main target host: **FL Studio 2026 on Windows at 1920x1080**. Sibling project and template: Chordbloom
-(`Desktop\Klimper-Like`). The user-facing guide (install, FL setup, how to read the panels) is `README.md`.
+Main target host: **FL Studio 2026 on Windows at 1920x1080**. Sibling project and template: Chordbloom.
+The user-facing guide (install, FL setup, how to read the panels) is `README.md`.
 
 ## Repository layout
 
